@@ -1,0 +1,24 @@
+<div class="h-screen flex items-center justify-center">
+  <div class="bg-gray-200 w-2/3 rounded-xl p-6 shadow-xl border-gray-100">
+    <h1 class="uppercase text-xl font-extrabold">Systeminformationen</h1>
+    <div>
+      @for(button of buttons; track button) {
+      <button (click)="show(button)"
+        class="border p-2 bg-gray-500 text-white font-bold uppercase mx-1 rounded-lg hover:bg-gray-400 hover:text-gray-500">{{button}}</button>
+      }
+    </div>
+    <div class="mt-4">
+      <div #system class="hidden">
+        <pre>{{systemData | json}}</pre>
+      </div>
+      <div #os class="hidden">
+        <pre>{{osData | json}}</pre>
+      </div>
+      <div #memory class="hidden">
+        <pre>{{memoryData | json}}</pre>
+      </div>
+      <div #cpu class="hidden">
+        <pre>{{cpuData | json}}</pre>
+      </div>
+    </div>
+  </div>
