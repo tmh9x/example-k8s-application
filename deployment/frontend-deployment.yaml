@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: example-frontend
-          image: exapmle-frontend:latest
+          image: marcotechstarter/example-frontend:latest
           imagePullPolicy: IfNotPresent
           resources:
             requests:

@@ -27,7 +27,7 @@ spec:
       # - Each init container must complete successfully before the next one starts.
       containers:
         - name: example-backend
-          image: exapmle-backend:latest
+          image: marcotechstarter/example-backend:latest
           imagePullPolicy: IfNotPresent
           resources:
             requests:
