@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: default
+  name: example-application
   namespace: argocd
 spec:
-  project: default
+  project: example-application
   source:
     repoURL: https://github.com/marcolindner/example-k8s-application.git
     targetRevision: HEAD
