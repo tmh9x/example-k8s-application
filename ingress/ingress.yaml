@@ -5,8 +5,9 @@ metadata:
   name: example-ingress
   namespace: default
 spec:
+  ingressClassName: nginx
   rules:
-    - host: a2e72b18d2493419bacab187514bf900-41434049.eu-central-1.elb.amazonaws.com
+    - host: a4d1bd59a31d84c1da643446df73fb61-1965630046.eu-central-1.elb.amazonaws.com
       http:
         paths:
           - path: /
@@ -23,5 +24,3 @@ spec:
                 name: example-backend
                 port:
                   number: 3000
----
-
