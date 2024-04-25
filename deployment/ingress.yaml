@@ -6,7 +6,7 @@ metadata:
   namespace: default
 spec:
   rules:
-    - host: example.foo.com
+    - host: a2e72b18d2493419bacab187514bf900-41434049.eu-central-1.elb.amazonaws.com
       http:
         paths:
           - path: /
