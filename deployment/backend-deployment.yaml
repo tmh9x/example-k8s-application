@@ -21,10 +21,6 @@ spec:
       labels:
         app: example-backend
     spec:
-      # initContainers:
-      # Init containers are exactly like regular containers, except:
-      # - Init containers always run to completion.
-      # - Each init container must complete successfully before the next one starts.
       containers:
         - name: example-backend
           image: marcotechstarter/example-backend:latest
@@ -38,22 +34,13 @@ spec:
               memory: 50Mi
           livenessProbe:
             tcpSocket:
-              port: 80
+              port: 3000
             initialDelaySeconds: 5
             timeoutSeconds: 5
             successThreshold: 1
             failureThreshold: 3
             periodSeconds: 10
           ports:
-            - containerPort: 80
+            - containerPort: 3000
               name: backend-port
-          volumeMounts:
-            - name: localtime
-              mountPath: /etc/localtime
-      volumes:
-        - name: localtime
-          hostPath:
-            path: /usr/share/zoneinfo/Asia/Taipei
       restartPolicy: Always
----
-
