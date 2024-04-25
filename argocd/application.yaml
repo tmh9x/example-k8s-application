@@ -4,7 +4,7 @@ metadata:
   name: example-application
   namespace: argocd
 spec:
-  project: example-application
+  project: example-projekt
   source:
     repoURL: https://github.com/marcolindner/example-k8s-application.git
     targetRevision: HEAD

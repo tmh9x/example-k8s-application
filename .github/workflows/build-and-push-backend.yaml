@@ -1,13 +1,19 @@
-name: Docker Build and Push Backend
-
+name: Docker Build and Push
 on:
   push:
     tags:
       - "v*"
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - dockerfile: ./backend/Dockerfile
+            image: marcotechstarter/example-backend
+          - dockerfile: ./frontend/Dockerfile
+            image: marcotechstarter/example-frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,19 +24,19 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Extract metadata (tags, labels) for Docker Backend
+      - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: marcotechstarter/example-backend
+          images: ${{ matrix.image }}
           tags: |
             type=semver,pattern={{version}}
 
-      - name: Build and push Docker image Backend
+      - name: Build and push Docker Images
         uses: docker/build-push-action@v5
         with:
-          context: backend
-          file: ./backend/Dockerfile
+          context: .
+          file: ${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
