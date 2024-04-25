@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: example-frontend
-          image: marcotechstarter/example-frontend:1.0.0
+          image: marcotechstarter/example-frontend:1.0.3
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -42,6 +42,4 @@ spec:
             periodSeconds: 10
           ports:
             - containerPort: 80
-              name: frontend-port
----
-
+      restartPolicy: Always

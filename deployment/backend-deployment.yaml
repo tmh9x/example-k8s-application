@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: example-backend
-          image: marcotechstarter/example-backend:1.0.2
+          image: marcotechstarter/example-backend:1.0.3
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -42,5 +42,4 @@ spec:
             periodSeconds: 10
           ports:
             - containerPort: 3000
-              name: backend-port
       restartPolicy: Always
